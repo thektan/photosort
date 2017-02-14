@@ -21,3 +21,11 @@ I needed a quick script to organize the photos into separate directories accordi
 **After:**
 
 ![screenshot 2017-02-12 18 50 40](https://cloud.githubusercontent.com/assets/4496722/22869647/6ad63636-f155-11e6-9e9a-3e82c7dbe56e.png)
+
+## References
+Links I found useful while creating this script:
+
+- http://stackoverflow.com/questions/34123076/osx-how-to-get-the-creation-modification-time-of-a-file-from-the-command-lin
+- http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x700.html
+- http://askubuntu.com/questions/385528/how-to-increment-a-variable-in-bash
+- http://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-dir-does-not-already-exist
