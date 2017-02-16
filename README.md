@@ -1,7 +1,9 @@
 # photosort
 Sorts files into directories by year and month.
 
-When I backup my photos from my phone to my computer, all the photos are placed into a single directory. If I ever wanted to search for a specific file, it'd be pretty difficult sifting through thousands of photo so I organize them into separate folders by year and month. 
+### Background
+
+When I backup photos from my phone to my computer, all the photos are placed into a single directory. If I ever wanted to search for a specific file, it'd be pretty difficult sifting through thousands of photos so I organize them into separate folders by year and month. 
 
 I needed a quick script to organize the photos into separate directories according to their creation date.
 
