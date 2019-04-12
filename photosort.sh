@@ -1,22 +1,36 @@
-# Sort files from a single directory into separate directories by year and month.
-local total_count=$(ls -l | grep -v ^l | wc -l);
-total_count=$((total_count-1))
+#!/bin/bash
 
-let count=0;
+# Sort files from a single directory into separate directories by year
+# and month.
 
-for file in *; do
+moveFile() {
+	local file=$1;
+
 	let "count++";
 
-	echo -n "\rCurrently moving: $count/$total_count";
+	echo -en "\rCurrently moving: $count/$total_count";
 
 	local created=$(GetFileInfo -d $file);
 
-	local month=$(date -jf "%m/%d/%Y %H:%M:%S" $created +%m)
-	local year=$(date -jf "%m/%d/%Y %H:%M:%S" $created +%Y);
+	local month=$(date -jf "%m/%d/%Y %H:%M:%S" "$created" +%m);
+	local year=$(date -jf "%m/%d/%Y %H:%M:%S" "$created" +%Y);
 
 	mkdir -p $year/$month;
 
 	mv $file $year/$month/$file;
-done
+}
 
-echo "\n$total_count files sorted"
+count=$(ls -l | grep -v ^l | wc -l);
+total_count=$((count - 1))
+
+let count=0;
+
+read -p "Preparing to move $total_count files. Continue? [Y/n] " RESPONSE
+if [[ $RESPONSE =~ ^[Yy]$ ]]
+then
+	for file in *; do
+		moveFile $file;
+	done
+
+	echo -n "$total_count files sorted!"
+fi
